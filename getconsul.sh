@@ -3,6 +3,7 @@ CONSUL_TOKEN=$2
 
 # Fetch and process Consul data
 response=$(curl -fsS -H "X-Consul-Token: $CONSUL_TOKEN" "$CONSUL_URL")
+echo "CONSUL URL $CONSUL_URL"
 
 # Check if response is valid JSON
 if ! jq -e . >/dev/null 2>&1 <<<"$response"; then
